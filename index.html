@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Giày</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #FFFFFF;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            width: 150px;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            padding-left: 120px;
+        }
+
+        .nav-menu .top-nav {
+            display: flex;
+            gap: 70px;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-menu .bottom-nav {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 15px;
+            width: 200px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .search-box img {
+            width: 16px;
+            cursor: pointer;
+        }
+
+        .icon-action {
+            width: 28px;
+            cursor: pointer;
+        }
+
+        .banner {
+            width: 100%;
+            height: 500px;
+            background-image: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1ef2c775-8714-47e6-be19-65789734d68d');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 50px;
+        }
+
+
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .view-all {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            text-decoration: underline;
+            margin: 30px 0 50px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #ddd;
+            margin-bottom: 50px;
+        }
+
+        .bestseller-layout {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 30px;
+        }
+
+        .bestseller-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bestseller-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* --- PRODUCT CARD CHUNG --- */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-card .img-wrapper {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .product-card .img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-name {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .color-dots {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .color-dots img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+        .grid-4-cols {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .footer-white {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col p,
+        .footer-col ul li {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            list-style: none;
+        }
+
+        .footer-col p strong {
+            color: #333;
+        }
+
+        .social-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-row img {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* --- FOOTER ĐEN --- */
+        .footer-black {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-black h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .footer-black .subtitle {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-black hr {
+            border-color: #333;
+            margin: 20px 0;
+        }
+
+        .footer-black-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-black-bottom .info p {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .mall-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .mall-section img {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #ffb6c1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .floating-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header container">
+        <div class="logo">
+            <img src="" alt="Logo">
+        </div>
+        <div class="nav-menu">
+            <div class="top-nav">
+                <a href="#">GIÀY NỮ</a>
+                <a href="#">GIÀY NAM</a>
+                <a href="#">SALE 50%</a>
+            </div>
+            <div class="bottom-nav">
+                <a href="#">SẢN PHẨM BÁN CHẠY</a>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <img src="" alt="Search">
+            </div>
+            <img class="icon-action" src="" alt="User">
+            <img class="icon-action" src="" alt="Cart">
+        </div>
+    </header>
+
+    <div class="banner"></div>
+
+    <div class="container">
+        <h2 class="section-title">SẢN PHẨM BÁN CHẠY</h2>
+
+        <div class="bestseller-layout">
+            <div class="bestseller-left">
+                <img src="" alt="Model wearing shoes">
+            </div>
+
+            <div class="bestseller-right">
+                <div class="product-card">
+                    <div class="img-wrapper"><img src="" alt="Nike SB"></div>
+                    <div class="product-name">Nike SB Dunk Low Pro</div>
+                    <div class="product-price">3,239,000₫</div>
+                    <div class="color-dots">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="img-wrapper"><img src="" alt="Mexico 66"></div>
+                    <div class="product-name">MEXICO 66 SD</div>
+                    <div class="product-price">4,418,182₫</div>
+                    <div class="color-dots">
+                        <img src="">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="img-wrapper"><img src="" alt="Samba"></div>
+                    <div class="product-name">GIÀY SAMBA OG</div>
+                    <div class="product-price">2,700,000₫</div>
+                    <div class="color-dots">
+                        <img src="">
+                        <img src="">
+                        <img src="">
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="img-wrapper"><img src="" alt="Biti's"></div>
+                    <div class="product-name">Biti's Hunter EZ Lift</div>
+                    <div class="product-price">1,265,000₫</div>
+                    <div class="color-dots">
+                        <img src="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="view-all">XEM TẤT CẢ</a>
+        <hr class="divider">
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">GIÀY THỜI TRANG NỮ</h2>
+        <div class="grid-4-cols">
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">Biti's Hunter EZ Lift</div>
+                <div class="product-price">1,265,000₫</div>
+                <div class="color-dots"><img src=""></div>
+            </div>
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">Nike Air Force 1 '07</div>
+                <div class="product-price">3,519,000₫</div>
+                <div class="color-dots"><img src=""></div>
+            </div>
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">TIGER CORSAIR</div>
+                <div class="product-price">4,712,727₫</div>
+                <div class="color-dots">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">Nike Alphafly 3</div>
+                <div class="product-price">8,059,000₫</div>
+                <div class="color-dots">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+        </div>
+        <a href="#" class="view-all">XEM TẤT CẢ</a>
+        <hr class="divider">
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">GIÀY THỜI TRANG NAM</h2>
+        <div class="grid-4-cols">
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">Nike ReactX Rejuven8</div>
+                <div class="product-price">2,069,000₫</div>
+                <div class="color-dots">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">MEXICO 66 SD</div>
+                <div class="product-price">4,418,182₫</div>
+                <div class="color-dots">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">Nike Structure Plus</div>
+                <div class="product-price">4,699,000₫</div>
+                <div class="color-dots">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-wrapper"><img src=""></div>
+                <div class="product-name">Biti's Hunter Running</div>
+                <div class="product-price">1,295,000₫</div>
+                <div class="color-dots">
+                    <img src="">
+                    <img src="">
+                    <img src="">
+                </div>
+            </div>
+        </div>
+        <a href="#" class="view-all">XEM TẤT CẢ</a>
+        <hr class="divider" style="margin-bottom: 30px;">
+    </div>
+
+    <div class="container footer-white">
+        <div class="footer-col">
+            <h4>GỌI MUA HÀNG ONLINE (08:00 - 21:00 mỗi ngày)</h4>
+            <p><strong>1900.xxxx.xx</strong></p>
+            <br>
+            <h4>GÓP Ý & KHIẾU NẠI (08:30 - 20:30)</h4>
+            <p><strong>1900.xxxx.xx</strong></p>
+            <p>Tất cả các ngày trong tuần (Trừ tết Âm Lịch)</p>
+        </div>
+        <div class="footer-col">
+            <h4>Thông tin</h4>
+            <ul>
+                <li>> Giới thiệu và cửa hàng</li>
+                <li>> Chính sách và quy định</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>FAQ</h4>
+            <ul>
+                <li>> Vận chuyển</li>
+                <li>> Chính sách đổi trả</li>
+                <li>> Chính sách đổi trả bảo hành</li>
+                <li>
+                    <div class="social-row">
+                        <span>> Đối tác</span>
+                        <img src="" alt="FB">
+                        <img src="" alt="Shopee">
+                        <img src="" alt="Tiktok">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-black">
+        <div class="container">
+            <h3>HỆ THỐNG CỬA HÀNG</h3>
+            <p class="subtitle">Xem địa chỉ các cửa hàng</p>
+            <hr>
+            <div class="footer-black-bottom">
+                <div class="info">
+                    <p style="color: #fff; font-size: 14px;">SHOP GIÀY CỦA TUI</p>
+                    <p>Địa chỉ: Quận 8, Thành phố Hồ Chí Minh</p>
+                </div>
+                <div class="mall-section">
+                    <span>Mall</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-btn">
+        <svg xmlns="http://www.0000/svg" viewBox="0 0 512 512">
+            <path
+                d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+        </svg>
+    </div>
+
+</body>
+
+</html>
