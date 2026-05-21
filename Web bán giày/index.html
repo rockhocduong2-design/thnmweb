@@ -42,7 +42,7 @@
             background-image: url('Image/sale.jpg');
             background-size: cover;
             background-position: center;
-            background-color: #f8c8d8; /* Màu nền dự phòng nếu lỗi ảnh */
+            background-color: #f8c8d8; 
         }
 
         /* THÀNH PHẦN CHUNG */
@@ -82,15 +82,25 @@
             font-size: 15px;
             color: #333;
         }
-        .color-dots img {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #ddd; 
+        
+        /* Đã cập nhật CSS cho ô màu chuẩn theo Giày Nam */
+        .product-card .color-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 8px;
         }
+        .product-card .color-dots .color-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .product-card .color-dots .color-dot:hover { transform: scale(1.2); }
 
-        /* FOOTER TÙY CHỈNH */
+        /* FOOTER */
         .footer-col h4 {
             font-size: 14px;
         }
@@ -131,6 +141,82 @@
             height: 30px;
             fill: #fff;
         }
+
+        /* RESPONSIVE */
+    @media (max-width: 767.98px) {
+    
+        header.container {
+            flex-direction: column !important; /* Xếp dọc các phần tử */
+            gap: 15px;
+            text-align: center;
+        }
+        .nav-menu {
+            padding-left: 0 !important; /* Bỏ khoảng trống bên trái */
+        }
+        .nav-menu .top-nav {
+            flex-wrap: wrap; /* Cho phép rớt dòng nếu menu quá dài */
+            justify-content: center;
+            gap: 15px !important;
+            font-size: 16px !important;
+        }
+        .nav-menu .bottom-nav {
+            font-size: 16px !important;
+        }
+        .search-box {
+            width: 100% !important; /* Ô tìm kiếm tràn viền điện thoại */
+        }
+        .banner {
+            height: 250px !important; /* Thu nhỏ chiều cao banner */
+        }
+
+        .category-title, .section-title {
+            font-size: 24px !important; /* Chữ tiêu đề nhỏ lại */
+        }
+        .product-card .img-wrapper {
+            height: 140px !important; /* Ảnh sản phẩm lùn xuống cho vừa màn hình nhỏ */
+        }
+        .product-name {
+            font-size: 13px !important;
+        }
+        .product-price {
+            font-size: 14px !important;
+        }
+
+        /*Form */
+        .login-box, .account-banner {
+            padding: 40px 20px !important; 
+        }
+        .login-box h1 {
+            font-size: 28px !important;
+        }
+        .benefits-box {
+            padding-left: 0 !important;
+            border-left: none !important;
+            border-top: 1px solid #ddd; 
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+        .footer-col {
+            text-align: center;
+            margin-bottom: 30px !important;
+        }
+        .social-row {
+            justify-content: center !important; 
+        }
+        .footer-black-bottom {
+            flex-direction: column;
+            text-align: center !important;
+            gap: 20px;  
+        }
+        .mall-section {
+            justify-content: center !important;
+        }
+    }
+    @media (max-width: 575.98px) {
+    .nav-menu .top-nav {
+        flex-direction: column; 
+        gap: 10px !important;
+    }
     </style>
 </head>
 <body>
@@ -154,8 +240,8 @@
                 <input type="text" placeholder="Tìm kiếm">
                 <i class="fa fa-search text-muted"></i>
             </div>
-            <i class="fa fa-user icon-action text-secondary" title="User"></i>
-            <i class="fa fa-shopping-cart icon-action text-secondary" title="Cart"></i>    
+            <a href="login.html" class="fa fa-user fs-4" title="User"></a>
+            <a href="cart.html" class="fa fa-shopping-cart fs-4" title="Cart"></a>
         </div>
     </header>
 
@@ -173,12 +259,14 @@
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="card product-card border-0 text-center h-100">
-                            <div class="img-wrapper"><img src="Image/Nike SB Dunk Low Pro.avif" alt="Nike SB" class="img-fluid"></div>
+                            <div class="img-wrapper"><img src="Image/duck low.png" alt="Nike SB" class="img-fluid"></div>
                             <div class="card-body p-0 mt-2">
                                 <div class="product-name">Nike SB Dunk Low Pro</div>
                                 <div class="product-price fw-bold">3,239,000₫</div>
-                                <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                                    <img src="" alt=""><img src="" alt="">
+                                <div class="color-dots">
+                                    <div class="color-dot" style="background-color: #e43c2c;"></div>
+                                    <div class="color-dot" style="background-color: #d67a4d;"></div>
+                                    <div class="color-dot" style="background-color: #171c26;"></div>
                                 </div>
                             </div>
                         </div>
@@ -189,20 +277,24 @@
                             <div class="card-body p-0 mt-2">
                                 <div class="product-name">MEXICO 66 SD</div>
                                 <div class="product-price fw-bold">4,418,182₫</div>
-                                <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                                    <img src="" alt=""><img src="" alt=""><img src="" alt="">
+                                <div class="color-dots">
+                                    <div class="color-dot" style="background-color: #e5e5e5;"></div>
+                                    <div class="color-dot" style="background-color: #c9b08f;"></div>
+                                    <div class="color-dot" style="background-color: #222;"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="card product-card border-0 text-center h-100">
-                            <div class="img-wrapper"><img src="Image/SAMBA OG.png" alt="Samba" class="img-fluid"></div>
+                            <div class="img-wrapper"><img src="Image/samba.png" alt="Samba" class="img-fluid"></div>
                             <div class="card-body p-0 mt-2">
                                 <div class="product-name">GIÀY SAMBA OG</div>
                                 <div class="product-price fw-bold">2,700,000₫</div>
-                                <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                                    <img src="" alt=""><img src="" alt=""><img src="" alt="">
+                                <div class="color-dots">
+                                    <div class="color-dot" style="background-color: #e43c2c;"></div>
+                                    <div class="color-dot" style="background-color: #222;"></div>
+                                    <div class="color-dot" style="background-color: #e5e5e5;"></div>
                                 </div>
                             </div>
                         </div>
@@ -213,8 +305,8 @@
                             <div class="card-body p-0 mt-2">
                                 <div class="product-name">Biti's Hunter EZ Lift</div>
                                 <div class="product-price fw-bold">1,265,000₫</div>
-                                <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                                    <img src="" alt="">
+                                <div class="color-dots">
+                                    <div class="color-dot" style="background-color: #e5e5e5;"></div>
                                 </div>
                             </div>
                         </div>
@@ -236,17 +328,21 @@
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">Biti's Hunter EZ Lift</div>
                         <div class="product-price fw-bold">1,265,000₫</div>
-                        <div class="color-dots d-flex justify-content-center mt-2"><img src=""></div>
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #e5e5e5;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div class="card product-card border-0 text-center h-100">
-                    <div class="img-wrapper"><img src="Image/Nike Air Force 1 '07.avif" class="img-fluid"></div>
+                    <div class="img-wrapper"><img src="Image/nike 107.png" class="img-fluid"></div>
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">Nike Air Force 1 '07</div>
                         <div class="product-price fw-bold">3,519,000₫</div>
-                        <div class="color-dots d-flex justify-content-center mt-2"><img src=""></div>
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #f4b8b8;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,20 +352,24 @@
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">TIGER CORSAIR</div>
                         <div class="product-price fw-bold">4,712,727₫</div>
-                        <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                            <img src=""><img src=""><img src="">
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #c9b08f;"></div>
+                            <div class="color-dot" style="background-color: #5e4b3c;"></div>
+                            <div class="color-dot" style="background-color: #d99c9c;"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div class="card product-card border-0 text-center h-100">
-                    <div class="img-wrapper"><img src="Image/Nike Alphafly 3.avif" class="img-fluid"></div>
+                    <div class="img-wrapper"><img src="Image/nike alpha 3.png" class="img-fluid"></div>
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">Nike Alphafly 3</div>
                         <div class="product-price fw-bold">8,059,000₫</div>
-                        <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                            <img src=""><img src=""><img src="">
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #e43c2c;"></div>
+                            <div class="color-dot" style="background-color: #f27d35;"></div>
+                            <div class="color-dot" style="background-color: #9b59b6;"></div>
                         </div>
                     </div>
                 </div>
@@ -284,12 +384,14 @@
         <div class="row g-4 mb-4">
             <div class="col-6 col-lg-3">
                 <div class="card product-card border-0 text-center h-100">
-                    <div class="img-wrapper"><img src="Image/Nike ReactX Rejuven8.avif" class="img-fluid"></div>
+                    <div class="img-wrapper"><img src="Image/nikereact 8.png" class="img-fluid"></div>
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">Nike ReactX Rejuven8</div>
                         <div class="product-price fw-bold">2,069,000₫</div>
-                        <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                            <img src=""><img src=""><img src="">
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #d1f238;"></div>
+                            <div class="color-dot" style="background-color: #e0e0e0;"></div>
+                            <div class="color-dot" style="background-color: #7b4e4e;"></div>
                         </div>
                     </div>
                 </div>
@@ -300,20 +402,24 @@
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">MEXICO 66 SD</div>
                         <div class="product-price fw-bold">4,418,182₫</div>
-                        <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                            <img src=""><img src=""><img src="">
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #e5e5e5;"></div>
+                            <div class="color-dot" style="background-color: #c9b08f;"></div>
+                            <div class="color-dot" style="background-color: #222;"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div class="card product-card border-0 text-center h-100">
-                    <div class="img-wrapper"><img src="Image/Nike Structure Plus.avif" class="img-fluid"></div>
+                    <div class="img-wrapper"><img src="Image/nike plus.png" class="img-fluid"></div>
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">Nike Structure Plus</div>
                         <div class="product-price fw-bold">4,699,000₫</div>
-                        <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                            <img src=""><img src=""><img src="">
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #434d4f;"></div>
+                            <div class="color-dot" style="background-color: #e4ebf1;"></div>
+                            <div class="color-dot" style="background-color: #222;"></div>
                         </div>
                     </div>
                 </div>
@@ -324,8 +430,10 @@
                     <div class="card-body p-0 mt-2">
                         <div class="product-name">Biti's Hunter Running</div>
                         <div class="product-price fw-bold">1,295,000₫</div>
-                        <div class="color-dots d-flex justify-content-center gap-1 mt-2">
-                            <img src=""><img src=""><img src="">
+                        <div class="color-dots">
+                            <div class="color-dot" style="background-color: #c9e0ef;"></div>
+                            <div class="color-dot" style="background-color: #b5b5b5;"></div>
+                            <div class="color-dot" style="background-color: #1a1a24;"></div>
                         </div>
                     </div>
                 </div>
