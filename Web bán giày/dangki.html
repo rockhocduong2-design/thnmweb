@@ -235,31 +235,58 @@
         flex-direction: column; 
         gap: 10px !important;
     }
+}
     </style>
 </head>
 <body>
 
-    <header class="container d-flex justify-content-between align-items-center py-3">
-        <div class="logo">
-            <a href="index.html"><img src="Image/Logo.png" alt="Logo"></a>
-        </div>
-        <div class="nav-menu d-flex flex-column gap-2 flex-grow-1 ps-5">
-            <div class="top-nav d-flex gap-4">
-                <a href="giaynu.html">GIÀY NỮ</a>
-                <a href="giaynam.html">GIÀY NAM</a>
-                <a href="sale.html" class="text-danger">SALE 50%</a>
+   <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3 sticky-top">
+        <div class="container align-items-center">
+            <button class="navbar-toggler shadow-none border-0 pe-2" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand logo p-0 m-0 mx-auto mx-lg-0" href="index.html">
+                <img src="Image/Logo.png" alt="Logo" style="width: 120px; object-fit: contain;">
+            </a>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu"
+                aria-labelledby="offcanvasMenuLabel">
+
+                <div class="offcanvas-header border-bottom d-lg-none">
+                    <img src="Image/Logo.png" alt="Logo" style="width: 100px;">
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+                    <div
+                        class="nav-menu d-flex flex-column flex-lg-row gap-3 gap-lg-4 flex-grow-1 justify-content-center align-items-start align-items-lg-center w-100">
+                        <div class="d-flex flex-column flex-lg-row gap-3 gap-lg-4 fs-5 text-uppercase fw-semibold">
+                            <a href="index.html" class="nav-link">TRANG CHỦ</a>
+
+                            <a href="giaynu.html" class="nav-link">GIÀY NỮ</a>
+                            <a href="giaynam.html" class="nav-link">GIÀY NAM</a>
+                            <a href="sale.html" class="nav-link text-danger">SALE 50%</a>
+                            <a href="banchay.html" class="nav-link">SẢN PHẨM BÁN CHẠY</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bottom-nav">
-                <a href="banchay.html">SẢN PHẨM BÁN CHẠY</a>
+
+            <div class="d-flex align-items-center gap-3">
+                <div class="search-box d-none d-md-flex align-items-center w-auto"
+                    style="border: 1px solid #ccc; border-radius: 20px; padding: 6px 15px; width: 180px;">
+                    <input type="text" placeholder="Tìm kiếm..." class="w-100"
+                        style="border: none; outline: none; font-size: 14px;">
+                    <i class="fa fa-search text-muted"></i>
+                </div>
+
+                <a href="login.html" class="text-secondary"><i class="fa fa-user fs-5 icon-action" title="User"></i></a>
+                <a href="cart.html" class="text-secondary"><i class="fa fa-shopping-cart fs-5 icon-action"
+                        title="Cart"></i></a>
             </div>
-        </div>
-        <div class="d-flex align-items-center gap-3">
-            <div class="search-box d-flex align-items-center">
-                <input type="text" placeholder="Tìm kiếm">
-                <i class="fa fa-search text-muted"></i>
-            </div>
-            <a href="login.html" class="text-dark"><i class="fa fa-user fs-4 icon-action"></i></a>
-            <i class="fa fa-shopping-cart fs-4 icon-action"></i>    
         </div>
     </header>
 
@@ -276,7 +303,7 @@
                 <form>
                     <div class="mb-3">
                         <label class="form-label">Họ <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control custom-input" placeholder="Điền vào Họ của bạn...">
+                        <input type="text" class="form-control custom-input" placeholder="Điền vào Họ của bạn..." required>
                     </div>
                     
                     <div class="mb-3">
